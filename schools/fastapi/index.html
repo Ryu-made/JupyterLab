@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <style>
+        html, body {
+            font-size: 10px;
+        }
+        
+        #container {
+            margin: 4px;
+            background: #aaffff;
+            min-height: 80vh;
+        }
+        
+        #page-title {
+            font-size: 2.5em;
+            color: darkorange;
+        }
+        
+        main .sec {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        main .sec > img {
+            border: 1px solid red;
+            font-size: 3.5em;
+            width: 800px;
+        }
+        
+        #bound {
+            margin-bottom: 16px;   
+        }   
+
+        header, nav, main {
+            padding: 0 2.5%;
+        }
+
+        
+    </style>
+    
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h3 id="page-title">스포츠와 경제성장률 그래프</h3>
+        </header>
+        <hr id="bound"/>
+        <nav>
+            
+        </nav>
+        <main>
+            <div class="sec">
+                <img id="m1" class="image" src="#" alt="그래프이미지" />
+                <img id="m2" class="image" src="#" alt="그래프이미지" />
+                <img id="m3" class="image" src="#" alt="그래프이미지" />
+                <img id="m4" class="image" src="#" alt="그래프이미지" />
+                <img id="m5" class="image" src="#" alt="그래프이미지" />
+                <img id="m6" class="image" src="#" alt="그래프이미지" />
+            </div>
+        </main>
+    </div>    
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // 이미지 가져오기
+        const imgs = document.querySelectorAll('.image');
+        for (let i = 0; i < imgs.length; i++) {
+            imgs[i].src = `http://192.168.0.18:8000/test02/${i+1}`;
+        }    
+
+        // 함수 생성
+        async function handleData() {
+            const url = `http://192.168.0.18:8000/main`;
+            const headers = {"Content-Type":"application/json"};
+            const {data} = await axios.get(url, {headers});
+            console.log(data);
+        }
+
+        // 함수 호출
+        handleData();
+    </script>
+</html>

@@ -1,0 +1,33 @@
+# 임시 파일, 컴파일된 파일 및 디렉터리
+**/*.log
+**/*.tmp
+**/*.bak
+**/*.swp
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
+
+# 크롬+크롬드라이버
+chrome/
+# 주피터노트북 체크포인트
+**/.ipynb_checkpoints/
+
+# 압축파일
+**/*.zip
+**/*.7z
+
+# 주피터 설정파일
+.jupyter/
+
+# 파이썬 바이트코드파일
+**/*.pyc
+**/__pycache__/
+
+# 출력 데이터
+**/*.csv
+**/*.xlsx
+
+# D2Coding 폰트
+/D2Coding/
+**/*.ttf
